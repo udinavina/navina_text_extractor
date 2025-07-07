@@ -63,21 +63,6 @@ Download from [UB Mannheim Tesseract](https://github.com/UB-Mannheim/tesseract/w
 
 ## Usage
 
-### GUI Interface
-
-Launch the graphical interface:
-
-```bash
-python gui_ocr.py
-```
-
-Features:
-- Browse and select input images
-- Preview original and processed images
-- Adjust overlay style and font size
-- Save OCR data as JSON
-- Progress tracking
-
 ### Command Line Interface
 
 Basic usage:
