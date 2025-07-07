@@ -233,3 +233,6 @@ ocrextract/
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) for text recognition
 - [Pillow](https://pillow.readthedocs.io/) for image processing
 - [pytesseract](https://github.com/madmaze/pytesseract) for Python integration
+
+email: udi.shamir@navina.ai  / slack me if you have any questions
+Cheers!
