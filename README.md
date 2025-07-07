@@ -1,26 +1,35 @@
 # OCR Text Overlay System
 
-A Python-based OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image. Perfect for making text in images easily visible and copy-pastable.
+A Python-based OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image.
+
+This is perliminary stage.
+
+NOTE: I'm developing on Fedora Linux and perform testing on Fedora, Redhat and Ubuntu distros, some functions might not work as expected on macOS.
 
 ## Features
 
--  **Text Extraction**: Uses Tesseract OCR for accurate text recognition
--  **Visual Overlay**: Creates new images with text overlaid on original positions
--  **Multiple Styles**: Choose from highlight, border, or shadow overlay styles
+-  **Text Extraction**: Uses Tesseract OCR for accurate text recognition, we can test both EasyOCR and PaddleOCR as an alternatives
+-  **Visual Overlay**: Creates new images with text overlaid on original positions, this is very perliminary
+-  **Multiple Styles**: Choose from highlight, border, or shadow overlay styles,
+  . Highlight: OpenCV / PIL
+  . Border: OpenCV
+  . Shadow: PIL
 -  **CLI Support**: Command-line interface for batch processing
 -  **JSON Export**: Optional export of OCR data with coordinates and confidence scores
 -  **Customizable**: Adjustable font sizes and overlay styles
 
 ## Installation
 
-Note: if you are using macOS i would recommend installing homebrew package manager + newer python
-you will need to run in virtual enviorment
+Note: if you are using macOS i would recommend installing [homebrew](https://brew.sh/) package manager + newer version of python.
+You will need to run in virtual enviorment, python especially on macOS, make it hard to install python packages across the main file system and require "isolation".
+
+on macOS i have succefully tested with `python 3.13.5` 
 
 # Step 1: Create a venv
-python3 -m venv .venv
+`python3 -m venv .venv`
 
 # Step 2: Activate it
-source .venv/bin/activate
+`source .venv/bin/activate`
 
 ### Prerequisites
 
@@ -181,6 +190,7 @@ The system creates:
 - Check image quality and contrast
 - Verify text is clearly visible
 - Try different OCR configurations
+- I had a bug where i was overriding the original file, as result the file got corrupted and the extraction failed.
 
 **Low accuracy results**
 - Improve image resolution
