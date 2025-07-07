@@ -10,7 +10,7 @@ NOTE: I'm developing on Fedora Linux and perform testing on Fedora, Redhat and U
 
 -  **Text Extraction**: Uses Tesseract OCR for accurate text recognition, we can test both EasyOCR and PaddleOCR as an alternatives
 -  **Visual Overlay**: Creates new images with text overlaid on original positions, this is very perliminary
--  **Multiple Styles**: Choose from highlight, border, or shadow overlay styles,
+-  **Multiple Styles**: Choose from highlight, border, or shadow overlay styles:
   . Highlight: OpenCV / PIL
   . Border: OpenCV
   . Shadow: PIL
