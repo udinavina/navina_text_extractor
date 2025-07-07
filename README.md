@@ -1,6 +1,6 @@
 # OCR Text Overlay System
 
-A Python-based OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image.
+A Python-based Text extractor (currently from PDF) nd  OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image.
 
 This is perliminary stage.
 
@@ -161,12 +161,6 @@ The system creates:
 4. **Preprocessing**: Consider image preprocessing for poor quality images
 
 ## Troubleshooting
-
-### Common Issues
-
-**"tesseract not found"**
-- Ensure Tesseract is installed and in PATH
-- Use `--tesseract-cmd` to specify custom path
 
 **"No text found in image"**
 - Check image quality and contrast
