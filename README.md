@@ -31,11 +31,6 @@ on macOS i have succefully tested with `python 3.13.5`
 # Step 2: Activate it
 `source .venv/bin/activate`
 
-### Prerequisites
-
-- Python 3.7 or higher
-- Tesseract OCR engine
-
 ### Quick Setup
 
 1. Clone or download the project files
@@ -54,18 +49,6 @@ This will install all dependencies and check for Tesseract OCR.
 pip install -r requirements.txt
 ```
 
-2. Install Tesseract OCR:
-
-**Ubuntu/Debian:**
-```bash
-sudo apt-get install tesseract-ocr
-```
-
-**macOS:**
-```bash
-brew install tesseract
-```
-
 **Windows:**
 Download from [UB Mannheim Tesseract](https://github.com/UB-Mannheim/tesseract/wiki) and add to PATH.
 
@@ -75,67 +58,66 @@ Download from [UB Mannheim Tesseract](https://github.com/UB-Mannheim/tesseract/w
 
 Basic usage:
 ```bash
-python ocr_overlay.py input_image.jpg
+python3 main.py test_samples/Medical-Record-Requirements-for-Pre-Service.pdf --all
 ```
-
-With options:
-```bash
-python ocr_overlay.py input_image.jpg -o output_overlay.png -s highlight --font-size 14 -j
-```
-
-#### CLI Options
-
-- `-o, --output`: Output image path (auto-generated if not specified)
-- `-s, --style`: Overlay style (`highlight`, `border`, `shadow`)
-- `-j, --json`: Save OCR data as JSON file
-- `--font-size`: Font size for overlay text (default: 12)
-- `--tesseract-cmd`: Path to tesseract executable
-
-### Overlay Styles
-
-1. **Highlight** (default): Yellow background with black text
-2. **Border**: White background with red border
-3. **Shadow**: Black background with white text
 
 ## Examples
-
-### Processing Screenshots
-
-```bash
-python ocr_overlay.py screenshot.png -s border --font-size 16
 ```
+python3 main.py -h
+PyMuPDF loaded successfully.
+usage: main.py [-h] [--json] [--csv] [--features] [--text] [--all] [--ocr] [--normalize] [--group {line,block,page}]
+               [--output-dir OUTPUT_DIR] [--output-name OUTPUT_NAME]
+               pdf_file
 
+Extract text with coordinates from PDF for feature vectors
+
+positional arguments:
+  pdf_file              Path to PDF file
+
+options:
+  -h, --help            show this help message and exit
+  --json                Export as JSON with full coordinate data
+  --csv                 Export as CSV for analysis
+  --features            Export feature vectors for ML
+  --text                Export text only (no coordinates)
+  --all                 Export in all formats
+  --ocr                 Use OCR for scanned PDFs
+  --normalize           Normalize coordinates to [0,1] range
+  --group {line,block,page}
+                        Text grouping for text export (default: line)
+  --output-dir OUTPUT_DIR
+                        Output directory (default: output_data)
+  --output-name OUTPUT_NAME
+                        Base name for output files (default: PDF filename)
+
+Examples:
+  # Basic extraction
+  python main.py document.pdf
+
+  # Export as feature vectors
+  python main.py document.pdf --features
+
+  # Export multiple formats
+  python main.py document.pdf --json --csv --features
+
+  # Use OCR for scanned PDFs
+  python main.py scanned.pdf --ocr
+
+  # Normalize coordinates for ML
+  python main.py document.pdf --features --normalize
+```
 ### Batch Processing with JSON Export
 
-```bash
-python ocr_overlay.py document.jpg -o processed_document.png -j
-```
+TBD
 
-### Using Custom Tesseract Path
+### Using with all plugins to extract data
 
 ```bash
-python ocr_overlay.py image.png --tesseract-cmd /usr/local/bin/tesseract
+python3 main.py test_samples/certmedrecdoc_factsheet_icn909160.pdf --all
 ```
 
 ## Programming Interface
-
-You can also use the OCR system in your own Python code:
-
-```python
-from ocr_overlay import OCROverlay
-
-# Create OCR processor
-ocr = OCROverlay(font_size=14)
-
-# Process an image
-result = ocr.process_image("input.jpg", "output.png", "highlight", save_json=True)
-
-if result["success"]:
-    print(f"Found {result['text_blocks_count']} text blocks")
-    print(f"Extracted text: {result['extracted_text']}")
-else:
-    print(f"Error: {result['error']}")
-```
+TBD
 
 ## Output Format
 
@@ -199,23 +181,14 @@ The system creates:
 
 ### Debug Mode
 
-Add debug output by modifying the tesseract config:
-
-```python
-ocr_data = pytesseract.image_to_data(
-    image, 
-    output_type=pytesseract.Output.DICT,
-    config='--psm 6 -c debug_file=/tmp/tesseract.log'
-)
-```
-
 ## Development
 
 ### Project Structure
 
 ```
-ocrextract/
- ocr_overlay.py      # Main OCR processing module
+navina_text_extractor/
+ main.py      # Main OCR processing module
+ modules      # Processing modules
  setup.py            # Installation script
  requirements.txt    # Python dependencies
  README.md          # This file
