@@ -226,7 +226,6 @@ ocrextract/
  setup.py            # Installation script
  requirements.txt    # Python dependencies
  README.md          # This file
- CLAUD.md           # Project specification
 ```
 ## References
 
