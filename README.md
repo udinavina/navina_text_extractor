@@ -7,7 +7,6 @@ A Python-based OCR (Optical Character Recognition) system that extracts text fro
 -  **Text Extraction**: Uses Tesseract OCR for accurate text recognition
 -  **Visual Overlay**: Creates new images with text overlaid on original positions
 -  **Multiple Styles**: Choose from highlight, border, or shadow overlay styles
--  **GUI Interface**: User-friendly graphical interface for easy operation
 -  **CLI Support**: Command-line interface for batch processing
 -  **JSON Export**: Optional export of OCR data with coordinates and confidence scores
 -  **Customizable**: Adjustable font sizes and overlay styles
@@ -207,7 +206,6 @@ ocr_data = pytesseract.image_to_data(
 ```
 ocrextract/
  ocr_overlay.py      # Main OCR processing module
- gui_ocr.py          # GUI interface
  setup.py            # Installation script
  requirements.txt    # Python dependencies
  README.md          # This file
