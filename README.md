@@ -1,6 +1,6 @@
 # OCR Text Overlay System
 
-A Python-based Text extractor (currently from PDF) nd  OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image.
+A Python based Text extractor (currently from PDF) nd  OCR (Optical Character Recognition) system that extracts text from images and creates new images with the recognized text visually overlaid on the original image.
 
 This is perliminary stage.
 
